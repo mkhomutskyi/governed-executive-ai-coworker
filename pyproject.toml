@@ -1,0 +1,16 @@
+[project]
+name = "governed-executive-ai-coworker"
+version = "0.1.0"
+description = "Synthetic pipeline, finance, and marketing demo for a validated executive decision brief"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = []
+
+[dependency-groups]
+dev = [
+  "pytest>=9.0.3,<10.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

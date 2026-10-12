@@ -1,0 +1,16 @@
+name: Tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --frozen --dev
+      - run: uv run pytest -q
+      - run: uv run python skills/executive-monday-brief/scripts/check_brief.py examples/monday-brief.md examples/kpis.json

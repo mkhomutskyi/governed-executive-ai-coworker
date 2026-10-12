@@ -1,0 +1,58 @@
+{
+  "weekly": [
+    {
+      "week": "2026-09-21",
+      "pipeline_created": 1490016.0,
+      "bookings": 1043808.0,
+      "bookings_target": 1051200.0,
+      "bookings_attainment": 0.992968,
+      "recognized_revenue": 936000.0,
+      "revenue_attainment": 0.975,
+      "marketing_spend": 180019.2,
+      "marketing_sourced_pipeline": 1112640.0,
+      "pipeline_per_marketing_dollar": 6.180674,
+      "qualified_leads": 836,
+      "cost_per_qualified_lead": 215.333971,
+      "opportunities_closed": 201,
+      "wins": 55,
+      "win_rate": 0.2736318407960199
+    },
+    {
+      "week": "2026-09-28",
+      "pipeline_created": 1833436.8,
+      "bookings": 962682.81,
+      "bookings_target": 1080000.0,
+      "bookings_attainment": 0.891373,
+      "recognized_revenue": 922752.0,
+      "revenue_attainment": 0.9377560976,
+      "marketing_spend": 204982.8,
+      "marketing_sourced_pipeline": 1485081.6,
+      "pipeline_per_marketing_dollar": 7.244908,
+      "qualified_leads": 991,
+      "cost_per_qualified_lead": 206.8444,
+      "opportunities_closed": 210,
+      "wins": 57,
+      "win_rate": 0.2714285714285714
+    }
+  ],
+  "regional": [
+    {
+      "region": "EMEA",
+      "bookings_attainment": 0.766772,
+      "pipeline_created": 595866.96,
+      "pipeline_per_marketing_dollar": 7.244908
+    },
+    {
+      "region": "North America",
+      "bookings_attainment": 0.928198,
+      "pipeline_created": 763932.0,
+      "pipeline_per_marketing_dollar": 7.244908
+    },
+    {
+      "region": "Asia Pacific",
+      "bookings_attainment": 0.988733,
+      "pipeline_created": 473637.84,
+      "pipeline_per_marketing_dollar": 7.244908
+    }
+  ]
+}

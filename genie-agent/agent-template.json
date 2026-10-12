@@ -1,0 +1,165 @@
+{
+  "version": 2,
+  "config": {
+    "sample_questions": [
+      {
+        "id": "10000000000000000000000000000001",
+        "question": [
+          "How did bookings compare with target in the week starting 2026-09-28?"
+        ]
+      },
+      {
+        "id": "10000000000000000000000000000002",
+        "question": [
+          "What changed in pipeline creation and marketing efficiency versus the prior week?"
+        ]
+      },
+      {
+        "id": "10000000000000000000000000000003",
+        "question": [
+          "Which region needs attention in the week starting 2026-09-28?"
+        ]
+      },
+      {
+        "id": "10000000000000000000000000000004",
+        "question": [
+          "How has win rate changed across the sample period?"
+        ]
+      }
+    ]
+  },
+  "data_sources": {
+    "metric_views": [
+      {
+        "identifier": "${catalog}.${schema}.executive_performance_metrics",
+        "description": [
+          "Governed weekly pipeline, finance, and marketing metrics for a synthetic B2B software executive operating review."
+        ],
+        "column_configs": [
+          {
+            "column_name": "Region",
+            "description": [
+              "Synthetic go-to-market region."
+            ],
+            "synonyms": [
+              "sales region",
+              "market"
+            ],
+            "enable_format_assistance": true,
+            "enable_entity_matching": true
+          },
+          {
+            "column_name": "Week",
+            "description": [
+              "Monday that starts the calendar week."
+            ],
+            "synonyms": [
+              "week starting",
+              "reporting week"
+            ],
+            "enable_format_assistance": true
+          }
+        ]
+      }
+    ]
+  },
+  "instructions": {
+    "text_instructions": [
+      {
+        "id": "20000000000000000000000000000001",
+        "content": [
+          "## PURPOSE\n- Explain weekly pipeline, finance, and marketing performance for executives using executive_performance_metrics.\n\n## DATA QUALITY NOTES\n- All records are synthetic and calendar weeks start on Monday.\n\n## CONSTRAINTS\n- Treat Marketing-Sourced Pipeline as attribution, not proof that marketing caused a sale.\n- Do not infer pipeline coverage because no approved coverage measure exists.\n\n## Instructions you must follow when providing summaries\n- State the date range and regions used.\n- Keep rate measures as fractions between 0 and 1 in SQL. In prose and tables, format rates as percentages and currency in USD.\n- Separate observed evidence from proposed action."
+        ]
+      }
+    ],
+    "example_question_sqls": [
+      {
+        "id": "30000000000000000000000000000001",
+        "question": [
+          "How did bookings compare with target for the week starting 2026-09-28?"
+        ],
+        "sql": [
+          "SELECT executive_performance_metrics.`Week`, MEASURE(executive_performance_metrics.`Bookings`) AS bookings, MEASURE(executive_performance_metrics.`Bookings Target`) AS bookings_target, MEASURE(executive_performance_metrics.`Bookings Attainment`) AS bookings_attainment FROM ${catalog}.${schema}.executive_performance_metrics WHERE executive_performance_metrics.`Week` = DATE '2026-09-28' GROUP BY ALL"
+        ]
+      },
+      {
+        "id": "30000000000000000000000000000002",
+        "question": [
+          "What changed in pipeline and marketing efficiency in the week starting 2026-09-28 versus the prior week?"
+        ],
+        "sql": [
+          "SELECT executive_performance_metrics.`Week`, MEASURE(executive_performance_metrics.`Pipeline Created`) AS pipeline_created, MEASURE(executive_performance_metrics.`Marketing Spend`) AS marketing_spend, MEASURE(executive_performance_metrics.`Marketing-Sourced Pipeline`) AS marketing_sourced_pipeline, MEASURE(executive_performance_metrics.`Pipeline per Marketing Dollar`) AS pipeline_per_marketing_dollar FROM ${catalog}.${schema}.executive_performance_metrics WHERE executive_performance_metrics.`Week` IN (DATE '2026-09-21', DATE '2026-09-28') GROUP BY ALL ORDER BY executive_performance_metrics.`Week`"
+        ]
+      },
+      {
+        "id": "30000000000000000000000000000003",
+        "question": [
+          "Which region had the lowest bookings attainment in the week starting 2026-09-28?"
+        ],
+        "sql": [
+          "SELECT executive_performance_metrics.`Region`, MEASURE(executive_performance_metrics.`Bookings`) AS bookings, MEASURE(executive_performance_metrics.`Bookings Target`) AS bookings_target, MEASURE(executive_performance_metrics.`Bookings Attainment`) AS bookings_attainment FROM ${catalog}.${schema}.executive_performance_metrics WHERE executive_performance_metrics.`Week` = DATE '2026-09-28' GROUP BY ALL ORDER BY bookings_attainment LIMIT 1"
+        ]
+      }
+    ]
+  },
+  "benchmarks": {
+    "questions": [
+      {
+        "id": "40000000000000000000000000000001",
+        "question": [
+          "What were bookings, bookings target, and attainment for the week starting 2026-09-28?"
+        ],
+        "answer": [
+          {
+            "format": "SQL",
+            "content": [
+              "SELECT executive_performance_metrics.`Week`, MEASURE(executive_performance_metrics.`Bookings`) AS bookings, MEASURE(executive_performance_metrics.`Bookings Target`) AS bookings_target, MEASURE(executive_performance_metrics.`Bookings Attainment`) AS bookings_attainment FROM ${catalog}.${schema}.executive_performance_metrics WHERE executive_performance_metrics.`Week` = DATE '2026-09-28' GROUP BY ALL"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "40000000000000000000000000000002",
+        "question": [
+          "What were pipeline created and pipeline per marketing dollar for the weeks starting 2026-09-21 and 2026-09-28?"
+        ],
+        "answer": [
+          {
+            "format": "SQL",
+            "content": [
+              "SELECT executive_performance_metrics.`Week`, MEASURE(executive_performance_metrics.`Pipeline Created`) AS pipeline_created, MEASURE(executive_performance_metrics.`Pipeline per Marketing Dollar`) AS pipeline_per_marketing_dollar FROM ${catalog}.${schema}.executive_performance_metrics WHERE executive_performance_metrics.`Week` IN (DATE '2026-09-21', DATE '2026-09-28') GROUP BY ALL ORDER BY executive_performance_metrics.`Week`"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "40000000000000000000000000000003",
+        "question": [
+          "Which region had the lowest bookings attainment in the week starting 2026-09-28?"
+        ],
+        "answer": [
+          {
+            "format": "SQL",
+            "content": [
+              "SELECT executive_performance_metrics.`Region`, MEASURE(executive_performance_metrics.`Bookings Attainment`) AS bookings_attainment FROM ${catalog}.${schema}.executive_performance_metrics WHERE executive_performance_metrics.`Week` = DATE '2026-09-28' GROUP BY ALL ORDER BY bookings_attainment LIMIT 1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "40000000000000000000000000000004",
+        "question": [
+          "What was the company win rate for each week in the sample period?"
+        ],
+        "answer": [
+          {
+            "format": "SQL",
+            "content": [
+              "SELECT executive_performance_metrics.`Week`, MEASURE(executive_performance_metrics.`Win Rate`) AS win_rate FROM ${catalog}.${schema}.executive_performance_metrics GROUP BY ALL ORDER BY executive_performance_metrics.`Week`"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

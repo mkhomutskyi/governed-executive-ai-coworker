@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this demo, cite it using the metadata below."
+title: "Governed Executive AI Coworker"
+type: software
+authors:
+  - family-names: "Khomutskyi"
+    given-names: "Maks"
+repository-code: "https://github.com/mkhomutskyi/governed-executive-ai-coworker"
+url: "https://github.com/mkhomutskyi/governed-executive-ai-coworker"
+license: "Apache-2.0"
+version: "0.1.0"
+date-released: "2026-10-09"

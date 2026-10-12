@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic executive brief results</title>
+  <desc id="desc">Pipeline grew while bookings declined, EMEA had the lowest bookings attainment, and the final Agent benchmark passed four of four questions.</desc>
+  <rect width="1200" height="630" fill="#f7f7f5"/>
+  <text x="70" y="72" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">Monday executive brief: validated synthetic signals</text>
+  <text x="70" y="108" font-family="Arial, sans-serif" font-size="18" fill="#4b5563">Week starting 28 Sep 2026 | Governed business KPIs</text>
+
+  <rect x="70" y="145" width="680" height="410" rx="18" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="105" y="195" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">What changed</text>
+  <text x="105" y="250" font-family="Arial, sans-serif" font-size="20" fill="#111827">Pipeline created</text>
+  <text x="700" y="250" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#087f5b">+23.0%</text>
+  <rect x="105" y="267" width="570" height="12" rx="6" fill="#d1fae5"/>
+  <rect x="105" y="267" width="364" height="12" rx="6" fill="#10b981"/>
+  <text x="105" y="330" font-family="Arial, sans-serif" font-size="20" fill="#111827">Marketing-sourced pipeline</text>
+  <text x="700" y="330" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#087f5b">+33.5%</text>
+  <rect x="105" y="347" width="570" height="12" rx="6" fill="#d1fae5"/>
+  <rect x="105" y="347" width="530" height="12" rx="6" fill="#10b981"/>
+  <text x="105" y="410" font-family="Arial, sans-serif" font-size="20" fill="#111827">Bookings</text>
+  <text x="700" y="410" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#b42318">-7.8%</text>
+  <rect x="105" y="427" width="570" height="12" rx="6" fill="#fee2e2"/>
+  <rect x="105" y="427" width="123" height="12" rx="6" fill="#ef4444"/>
+  <text x="105" y="495" font-family="Arial, sans-serif" font-size="20" fill="#111827">Region to inspect: EMEA</text>
+  <text x="700" y="495" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#b45309">76.7% attainment</text>
+
+  <rect x="800" y="145" width="330" height="410" rx="18" fill="#111827"/>
+  <text x="835" y="195" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#ffffff">Genie Agent benchmark</text>
+  <text x="835" y="315" font-family="Arial, sans-serif" font-size="78" font-weight="700" fill="#60a5fa">4 / 4</text>
+  <text x="835" y="360" font-family="Arial, sans-serif" font-size="19" fill="#e5e7eb">Chat-mode questions correct</text>
+  <text x="835" y="408" font-family="Arial, sans-serif" font-size="17" fill="#94a3b8">0 requiring manual review</text>
+  <text x="835" y="490" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">Rates stay fractional in SQL</text>
+  <text x="835" y="518" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">and display as percentages</text>
+</svg>
